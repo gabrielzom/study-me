@@ -47,6 +47,7 @@ button {
 button:hover {
   color: lightgreen;
   border: 1px solid lightgreen;
+  background-color: darkolivegreen;
 }
 
 button:active {
