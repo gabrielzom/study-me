@@ -23,13 +23,44 @@ document.addEventListener('DOMContentLoaded', function(event) {
   for(let index = 0; index < alphabet.length; index++) {
     let img = document.createElement('img')
     img.src = `https://source.unsplash.com/random?${alphabet[index]}=1`
+    img.setAttribute('onclick', 'showImageInModal(this.src)')
     section.appendChild(img)
   }
 })
 
-buttonOpenDialog.onclick = function () {
+function showImageInModal(src) {
+  let img = document.createElement('img')
+  img.src = src
+
+  dialog.style.maxWidth = '1366px'
+  dialog.style.maxHeight = '768px'
+
+  dialog.childNodes.forEach(child => {
+    if(child.tagName === 'P' || child.tagName === 'H1') child.hidden = true
+  })
+
+  let div = document.getElementById('flex-modal')
+
+  if (div.lastChild) {
+    div.removeChild(div.lastChild)
+    div.appendChild(img)
+
+  } else {
+    div.appendChild(img)
+  }
+
   dialog.showModal()
-  
+}
+
+buttonOpenDialog.onclick = function () {
+  dialog.style.maxWidth = '50%'
+  dialog.style.maxHeight = '50%'
+  dialog.childNodes.forEach(child => {
+    if(child.tagName === 'P' || child.tagName === 'H1') child.hidden = false
+  })
+  let div = document.getElementById('flex-modal')
+  if (div.lastChild) div.removeChild(div.lastChild)
+  dialog.showModal()
   document.body.style.opacity = '50%'
 }
 
