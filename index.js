@@ -48,7 +48,7 @@ function showImageInModal(src) {
   } else {
     div.appendChild(img)
   }
-
+  document.body.style.opacity = '50%'
   dialog.showModal()
 }
 

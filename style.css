@@ -107,3 +107,17 @@ h1 {
   font-weight: 400;
   color: darkolivegreen;
 }
+
+body::-webkit-scrollbar , dialog::-webkit-scrollbar {
+  width: 12px;            
+}
+
+body::-webkit-scrollbar-track, dialog::-webkit-scrollbar-track {
+  background: #393939;      
+}
+
+body::-webkit-scrollbar-thumb, dialog::-webkit-scrollbar-thumb {
+  background-color: darkolivegreen;   
+  border-radius: 20px;      
+  border: 3px solid lightgreen;  
+}
